@@ -11,6 +11,9 @@ export class AppComponent {
    * Booleen - est authentifié
    */
   isAuth = false;
+  appareilOne = 'MAchine a laver du ts';
+  appareilTwo = 'Télévision du ts';
+  appareilThree = 'Ordinateur du ts';
 
   /**
    * Executé au moment de la cration du component
