@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppareilService } from './services/appareil.service';
 
 
 @Component({
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'my awesone app';
   
   /**
@@ -30,39 +31,36 @@ export class AppComponent {
     }
   )
   
-
-  appareils = [
-    {
-      name: 'Machine à laver',
-      status: 'allumé'
-    },
-    {
-      name: 'Télévision',
-      status: 'éteint'
-    },
-    {
-      name: 'Ordinateur',
-      status: 'allumé'
-    },
-    {
-      name: 'Climatisation',
-      status: 'allumé'
-    },
-  ]
+  appareils: any[];
 
   /**
    * Executé au moment de la cration du component
+   * Injection de appareilService, du coup on peut l'appeler de partout via this.appareilService
    */
-  constructor(){
+  constructor( private appareilService : AppareilService ){
+    this.appareils = [];
     setTimeout (
       () => {
         this.isAuth  = true
       }, 4000
     )
-  };
+  }
+  
+  /**
+   * executee au moment de la creation du component par Angular
+   * et apres l'execution du constructor
+   */
+  ngOnInit(): void {
+    this.appareils = this.appareilService.appareils;
+  }
+;
 
   onAllumer(){
-    
+    this.appareilService.switchOnAll();
+  }
+
+  onEteindre(){
+    this.appareilService.switchOffAll();
   }
 
 }
