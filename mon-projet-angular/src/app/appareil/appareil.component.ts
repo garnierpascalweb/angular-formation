@@ -18,4 +18,6 @@ export class AppareilComponent implements OnInit {
     return this.appareilStatus;
   }
 
+ 
+
 }
