@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my awesone app';
+  
   /**
    * Booleen - est authentifié
    */
@@ -14,6 +16,20 @@ export class AppComponent {
   //appareilOne = 'MAchine a laver du ts';
   //appareilTwo = 'Télévision du ts';
   //appareilThree = 'Ordinateur du ts';
+
+  // lastUpdate = new Date();
+  
+  lastUpdate = new Promise<Date>(
+    (resolve, reject) => {
+      const date = new Date();
+      setTimeout(
+        () => {
+          resolve(date);
+        }, 5000
+      );
+    }
+  )
+  
 
   appareils = [
     {
