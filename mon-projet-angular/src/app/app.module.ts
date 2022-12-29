@@ -12,10 +12,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { AppareilDetailComponent } from './appareil-detail/appareil-detail.component';
 import { AuthGuard } from './services/authguard.service';
+import { AppareilEditComponent } from './appareil-edit/appareil-edit.component';
 
 const appRoutes : Routes = [
  { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },
  { path: 'appareils/:id', canActivate: [AuthGuard], component: AppareilDetailComponent },
+ { path: 'edit', canActivate: [AuthGuard], component: AppareilEditComponent },
  { path: 'auth',  component: AuthComponent },
  { path: '',  component: AppareilViewComponent },
 
@@ -28,7 +30,8 @@ const appRoutes : Routes = [
     AppareilComponent,
     AuthComponent,
     AppareilViewComponent,
-    AppareilDetailComponent
+    AppareilDetailComponent,
+    AppareilEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <!-- peu comprehensible  -->
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-group">
+                <label for="name">Nom de l'appareil</label>
+                <input type="text" id="name" class="form-control" name="name" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="status">Etat de l'appareil</label>
+                <!-- pour ce cas, on se lie a la directive ngModel avec la valeur par defaut attribut du component a savoir defaultStatus -->
+                <select id="status" class="form-control" name="status" [ngModel]="defaultStatus" required>
+                    <option value="allumé">Allumé</option>
+                    <option value="éteint">Eteint</option>
+                </select>
+            </div>
+            <!-- on disable le bouton si le formulaire est invalid, cest a dire si les champs pointes par la duirective required sont pas remplis -->
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Enregistrer</button>
+        </form>
+    </div>
+</div>

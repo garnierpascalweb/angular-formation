@@ -82,4 +82,26 @@ export class AppareilService {
         this.appareils[index].status = 'éteint';
         this.emitAppareilSubject();
     }
+
+    /**
+     * methode permettant l'ajour d'un appareil a la liste
+     * @param name  le nom du nouvel appareil
+     * @param status le status du nouvel appareil
+     */
+    addAppareil(name: string, status:string){
+        const appareilObjectToAdd = {
+            id:0,
+            name:'',
+            status:''
+        };
+        // calcul de l'ID : le dernier de la liste, plus un (peut etre ignoré et géré par le sgbd en auto incrtement dans un vrai projet)
+        appareilObjectToAdd.id = this.appareils[(this.appareils.length-1)].id+1;
+        appareilObjectToAdd.name = name;
+        appareilObjectToAdd.status = status;
+        // Ajout du nouvel appareil
+        this.appareils.push(appareilObjectToAdd);
+        // emission du subject puisque ya eu un changement
+        this.emitAppareilSubject();
+        
+    }
 }
