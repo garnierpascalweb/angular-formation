@@ -1,0 +1,31 @@
+ng new mon-projet-angular --style=scss --skip-tests=true
+npm install bootstrap@3.3.7 --save
+ng generate component mon-premier
+
+16:45 Interpolation - integrer une donnée du typescript dans le template {{}}
+ng generate component appareil
+
+22:00 Liaison de properiété (properties binding) - avec des crochets [] pour lier a la propriété
+
+26:30 Liaison par evenement (event binding) - avec des parentheses pour reagir a l'evenement
+
+En resume:
+Interpolation et liaison par propriété : du typeScript vers le template
+Liaison par evenement : reégir aux action du template dans le typescript
+
+29:20 two ways bindings : ajout de forms module (input)
+
+32:00 - liaison de données - commuication typescript / HTML - 
+37:00 Les directives
+37:00 a 44:15 - Directives structurelles - ngIf, ngFor (structurer le document selon certaines conditions choisies)
+44:15 a 50:15 - Directives par attribut - ngClass, ngStyle - Modifie le comportement des components dans le DOM
+50:30 : les pipes pour modifier l'affichage des données (date, uppercase)
+55:00 a 58:00 le pipe async TRES IMPORTANT
+
+Les services (centraliser du code) - 
+3 niveaux d'injection
+  - appModule (dispo pour tous les components et autres services)
+  - appComponent (dispo pour tous les components de l'application, mais pas les autres servuices)
+  - niveau component 
+Le routing
+RXJS
