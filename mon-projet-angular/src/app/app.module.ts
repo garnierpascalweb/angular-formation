@@ -8,7 +8,7 @@ import { AppareilComponent } from './appareil/appareil.component';
 import { AppareilService } from './services/appareil.service';
 import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes : Routes = [
  { path: 'appareils', component: AppareilViewComponent },
@@ -27,7 +27,9 @@ const appRoutes : Routes = [
   ],
   imports: [
     BrowserModule,
-    FormsModule,    
+    FormsModule, 
+    // Mise en place des routes (1:21:00)
+    RouterModule.forRoot (appRoutes)
   ],
   providers: [
     AppareilService
