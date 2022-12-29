@@ -30,5 +30,5 @@ Les services (centraliser du code) -
 
 1:16:00 Le routing
 
-
+1:18:45 le routing
 RXJS
