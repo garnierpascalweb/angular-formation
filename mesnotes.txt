@@ -73,13 +73,14 @@ Observable : objet qui emet des informations dans le temps (champ de texte, down
 
 2:08:00 - Gestion des donnees utilisateurs et serveurs
 Les formulaires (methode template, methode reactive)
-2:09:15 methode template : 
+2:09:15 methode template (objet formulaire NgForm) : 
   creation d'un formulaire
 	2:15:30 valmidation ddes donnees
 	2:17:00 forcer une valeur par defaut dans une liste deroulante en se liant à ngModel
 	2:18:00 exploiter des donnees
-2:22:30 methode reactive
-
+2:22:30 methode reactive (objet formulaire FormGroup)
+  2:22:30 preparation u terrain : creation modele, service User
+  2:34:00 implementation methode reactive
 
 
 
