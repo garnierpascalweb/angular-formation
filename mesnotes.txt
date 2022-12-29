@@ -29,7 +29,8 @@ Les services (centraliser du code) -
   - niveau component 
 Les services doivent etre 
  - ajoutés dans app.module.ts, bloc 'providers' !
- - et inhjectés dans les constructeurs des components qui vont bien, de la forme private authService : AuthService
+ - injectes dans des composants par le constructeurs de la forme private authService : AuthService
+ - injectés dans d'autres services par le decorateur @Injectable() de la forme 
 
 1:16:00 Le routing
 
@@ -47,11 +48,21 @@ creation de al mire de login apres 1:28:50
 1:32:30 1:34:15 - routing: authentification: navigation programmatique
 injection du router dans le component via le constructeurs : constructor(private authService : AuthService, private router: Router) 
 utilisation de la methode navigate :  this.router.navigate(['appareils']);
-1:34:15 1:45:00 - routing: passage de parametres dans l'url
+1:34:15 1:45:00 - routing: routes parametrees
 ajout d'une route parametree : appareils/:id
 injection de ActivatedRoute pour recuperation des parametres de lurl (1:38:30) et recuperation avec snapshot et params (1:39:00)
 utilisation de find sur les tableaux pour recherche dans un json (1:40:45)
 utilisation dun +id pour cast en integer (1:41:45)
+
+1:45:00 1:48:00 - routing : la redirection
+creation dun composant dedié aux erreurs 404
+illustration de path contenant des wild card '**' obligatoirement à la fin ! (1:46:30)
+
+1:48:00 1:54:00  - routing : les gardes 
+creation d'un service AuthGuard
+decorateur @Injectable pour injecter un service dans un autre service (1:50:10)
+notion de CanActivate (1:49:00) dans le service guard et attribut canActivate dans la const des routes (1:52:30)
+
 
 
 
