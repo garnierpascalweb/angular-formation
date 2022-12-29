@@ -27,5 +27,8 @@ Les services (centraliser du code) -
   - appModule (dispo pour tous les components et autres services)
   - appComponent (dispo pour tous les components de l'application, mais pas les autres servuices)
   - niveau component 
-Le routing
+
+1:16:00 Le routing
+
+
 RXJS
