@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
 import { AppareilService } from '../services/appareil.service';
 
 @Component({
@@ -36,6 +37,8 @@ export class AppareilViewComponent implements OnInit {
   )
   
   appareils: any[];
+  appareilSubscription: Subscription;
+
 
   /**
    * Executé au moment de la cration du component
@@ -43,6 +46,7 @@ export class AppareilViewComponent implements OnInit {
    */
   constructor( private appareilService : AppareilService ){
     this.appareils = [];
+    this.appareilSubscription = new Subscription();
     setTimeout (
       () => {
         this.isAuth  = true
@@ -55,7 +59,15 @@ export class AppareilViewComponent implements OnInit {
    * et apres l'execution du constructor
    */
   ngOnInit(): void {
-    this.appareils = this.appareilService.appareils;
+    // marche plus depuis que passé en private this.appareils = this.appareilService.appareils;
+    // souscription au subject du service
+    this.appareilSubscription = this.appareilService.appareilSubject.subscribe(
+      (appareils : any[]) => {
+         this.appareils = appareils;
+      }
+    );
+    // faire emettre le subject
+    this.appareilService.emitAppareilSubject();
   }
 ;
 

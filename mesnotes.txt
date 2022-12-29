@@ -31,6 +31,7 @@ Les services doivent etre
  - ajoutés dans app.module.ts, bloc 'providers' !
  - injectes dans des composants par le constructeurs de la forme private authService : AuthService
  - injectés dans d'autres services par le decorateur @Injectable() de la forme 
+  - les attributs d'un service devraient etre private et le service devrait exposer un subject
 
 1:16:00 Le routing
 
@@ -62,6 +63,13 @@ illustration de path contenant des wild card '**' obligatoirement à la fin ! (1
 creation d'un service AuthGuard
 decorateur @Injectable pour injecter un service dans un autre service (1:50:10)
 notion de CanActivate (1:49:00) dans le service guard et attribut canActivate dans la const des routes (1:52:30)
+
+1:54:00 2:08:00 - rxjs (Observable, Souscription, Subject)
+Observable : objet qui emet des informations dans le temps (champ de texte, download, requete http)
+
+1:59:00 objets Suscription bonne pratique
+2:01:00 interface OnDestroy et unsuscribe();
+2:01:30 objets Subject
 
 
 
