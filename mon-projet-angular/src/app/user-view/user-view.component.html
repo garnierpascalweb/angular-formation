@@ -1,0 +1,9 @@
+<!-- la liste des users -->
+<a routerLink="/useredit">Ajouter un user</a>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of users">
+        <h3>{{user.firstName}} {{user.lastName}}</h3>
+        <p>{{user.email}}</p>
+        Le reste on sen fout
+    </li>
+</ul>

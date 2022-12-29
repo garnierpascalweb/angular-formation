@@ -78,10 +78,13 @@ Les formulaires (methode template, methode reactive)
 	2:15:30 valmidation ddes donnees
 	2:17:00 forcer une valeur par defaut dans une liste deroulante en se liant à ngModel
 	2:18:00 exploiter des donnees
-2:22:30 methode reactive (objet formulaire FormGroup)
-  2:22:30 preparation u terrain : creation modele, service User
-  2:34:00 implementation methode reactive
-
+2:22:30 preparation du terrain en vue du mode reactive : creation modele, service User
+  modele User : constructeur avec des arguments public pour ne pas declarer les attributs, le ? pour facultatif...
+  bon rappel sur les bonnes pratiques de service / componennt
+2:34:00 implementation methode reactive (objet formulaire FormGroup), ajout de ReactiveFormsModule dans les imports
+2:44:00 utiliser les validators
+on peut creer ses propres validators, surement en implementant une interface : a regarder
+2:48:00 a 2:54:15 FormArray incomprehensible et non codé 
 
 
 
