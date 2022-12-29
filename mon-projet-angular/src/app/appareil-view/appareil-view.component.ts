@@ -6,6 +6,10 @@ import { AppareilService } from '../services/appareil.service';
   templateUrl: './appareil-view.component.html',
   styleUrls: ['./appareil-view.component.scss']
 })
+
+/**
+ * Composant pour offrir une vue globale des appareils
+ */
 export class AppareilViewComponent implements OnInit {
 
   title = 'my awesone app';

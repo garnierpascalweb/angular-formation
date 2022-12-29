@@ -11,9 +11,12 @@
       <app-appareil 
       *ngFor="let appareil of appareils; let i = index"
       [appareilIndex] = "i"
+      [appareilId] = "appareil.id"
       [appareilName] = "appareil.name"
-      [appareilStatus] = "appareil.status">
+      [appareilStatus] = "appareil.status"
+      >
     </app-appareil>
+    <!-- ne pas confondre index est id : inde cest l'index dans le tableau retourné : id cest l'id de l'objet, la cle primaire -->
 
     </ul>
     <!-- directive structurelle -->

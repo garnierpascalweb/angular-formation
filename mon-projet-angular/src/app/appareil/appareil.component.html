@@ -6,6 +6,7 @@
     <div style="width:20px;height:20px;background-color:green;" *ngIf="appareilStatus === 'allumé'"></div>
     <!-- directive par attribut ngStyle -->
     <h4 [ngStyle]="{color: getColor()}" >Appareil {{appareilName}} - {{getStatus()}}</h4>
+    <a [routerLink]="[appareilId]">Details de l'appareil</a>
     <input type="text" class="form-control" [(ngModel)]="appareilName" />  
     <button class="btn btn-success"
     (click)="onSwitchOn()"
