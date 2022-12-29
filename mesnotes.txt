@@ -27,6 +27,9 @@ Les services (centraliser du code) -
   - appModule (dispo pour tous les components et autres services)
   - appComponent (dispo pour tous les components de l'application, mais pas les autres servuices)
   - niveau component 
+Les services doivent etre 
+ - ajoutés dans app.module.ts, bloc 'providers' !
+ - et inhjectés dans les constructeurs des components qui vont bien, de la forme private authService : AuthService
 
 1:16:00 Le routing
 
@@ -34,6 +37,13 @@ Les services (centraliser du code) -
 1:20:30 1:22:15 - routing: integration des routes 
 <router-outlet></router-outlet> , RouterModule.forRoot (appRoutes)
 a integrer dans app.module.ts
+
+1:22:15 1:26:00 - routing: integration des routes par creation dune navbar
+<a routerLink="auth">, <li routerLinkActive="active">
+
+1:26:00 
+creation du service fake d'authentification jusqua 1:28:50
+
 
 
 routerLink a la place de a href
