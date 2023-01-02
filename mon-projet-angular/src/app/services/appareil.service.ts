@@ -1,34 +1,23 @@
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 import { Subject } from "rxjs/internal/Subject";
 
+// injectable depuis linjection de HttpClient
+@Injectable()
 export class AppareilService {
 
     appareilSubject = new Subject<any[]>();
 
-    private appareils = [
-        {
-            id: 1,
-            name: 'Machine à laver issu du service',
-            status: 'allumé'
-        },
-        {
-            id:2,
-            name: 'Télévision issue du service',
-            status: 'éteint'
-        },
-        {
-            id:3,
-            name: 'Ordinateur issu du service',
-            status: 'allumé'
-        },
-        {
-            id:4,
-            name: 'Climatisation issue du service ',
-            status: 'allumé'
-        },
-    ];
+
+    private appareils : any[];
+
+    constructor (private httpClient : HttpClient ){
+        this.appareils = [];
+    }
 
     emitAppareilSubject(){
         // slice renvoi une copie du tableau
+        if (this.appareils)
         this.appareilSubject.next(this.appareils.slice());
     }
 
@@ -50,7 +39,8 @@ export class AppareilService {
      */
     switchOnAll() {
         for (let appareil of this.appareils){
-            appareil.status = 'allumé';
+           appareil.status = 'allumé';
+           //appareil['status'] = 'allumé';
         }
         this.emitAppareilSubject();
     }
@@ -95,13 +85,69 @@ export class AppareilService {
             status:''
         };
         // calcul de l'ID : le dernier de la liste, plus un (peut etre ignoré et géré par le sgbd en auto incrtement dans un vrai projet)
-        appareilObjectToAdd.id = this.appareils[(this.appareils.length-1)].id+1;
+        if (this.appareils.length)
+            appareilObjectToAdd.id = this.appareils[(this.appareils.length-1)].id+1;
+        else appareilObjectToAdd.id = this.appareils[0].id+1;
         appareilObjectToAdd.name = name;
         appareilObjectToAdd.status = status;
         // Ajout du nouvel appareil
         this.appareils.push(appareilObjectToAdd);
         // emission du subject puisque ya eu un changement
-        this.emitAppareilSubject();
-        
+        this.emitAppareilSubject();        
+    }
+
+    /**
+     * Chargement des données depuis le backend (http GET)
+     */
+    load(){
+        this.httpClient
+        // on peut caster le type de retour d'un get, ici un array de type any, cela evite une erreur typescript lors du  this.appareils = response;
+        .get<any[]>('https://mon-projet-angular-30f14-default-rtdb.firebaseio.com/appareils.json')
+        // get re
+        .subscribe(
+            (response) => {
+                this.appareils = response;
+                console.log('ok lors du load - emit');
+                this.emitAppareilSubject();
+            },            
+            (error) => {
+               console.log('erreur de chargement');
+            }
+        );    
+    }
+
+    /**
+     * Sauvegarde des données sur le backend (http PUT)
+     */
+    save(){
+        // POST : url, data, eventuellement options      
+        // on rajoute appareils.json dans l'url
+        this.httpClient
+        .put('https://mon-projet-angular-30f14-default-rtdb.firebaseio.com/appareils.json',this.appareils)
+        // put renvoi un iobservable, 
+        // j'y souscris
+        .subscribe(
+            ()=>{
+                // appel ok
+                console.log('ok lors du save');
+            },
+            (error)=>{
+                console.log('erreur lors du save' + typeof(error));
+            }
+        );
+    }
+
+    delete(){
+        this.httpClient
+        .delete('https://mon-projet-angular-30f14-default-rtdb.firebaseio.com/appareils.json')
+        .subscribe(
+            ()=>{
+                console.log('ok lors du delete - emit');
+                this.emitAppareilSubject();
+            },
+            (error)=>{
+                console.log('erreur lors du delete' + typeof(error));
+            }
+        )
     }
 }

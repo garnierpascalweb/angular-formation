@@ -85,4 +85,27 @@ export class AppareilViewComponent implements OnInit {
     this.appareilService.switchOffAll();
   }
 
+  /**
+   * chargement des données depuis le backend
+   */
+  onLoad(){
+    this.appareilService.load();
+  }
+
+  /**
+   * sauvegarde des donnees sur le backend
+   */
+  onSave(){
+    this.appareilService.save();
+  }
+
+  /**
+   * suppression sur le backend
+   */
+  onDelete(){
+    this.appareilService.delete();
+  }
+
+
+
 }

@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+
 import { AppComponent } from './app.component';
 import { MonPremierComponent } from './mon-premier/mon-premier.component';
 import { AppareilComponent } from './appareil/appareil.component';
+
 
 import { AppareilService } from './services/appareil.service';
 import { AuthComponent } from './auth/auth.component';
@@ -16,6 +19,7 @@ import { AppareilEditComponent } from './appareil-edit/appareil-edit.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { UserService } from './services/user.service';
 import { UserEditComponent } from './user-edit/user-edit.component';
+
 
 const appRoutes : Routes = [
  { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },
@@ -43,9 +47,10 @@ const appRoutes : Routes = [
   imports: [
     BrowserModule,
     FormsModule, 
+    ReactiveFormsModule,
+    HttpClientModule,
     // Mise en place des routes (1:21:00)
-    RouterModule.forRoot (appRoutes),
-    ReactiveFormsModule
+    RouterModule.forRoot (appRoutes)   
   ],
   providers: [
     AppareilService,

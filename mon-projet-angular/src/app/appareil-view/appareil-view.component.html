@@ -22,6 +22,9 @@
     <!-- directive structurelle -->
     <button class="btn btn-success" [disabled]="!isAuth" (click)="onAllumer()"> Tout allumer </button>
     <button class="btn btn-danger" [disabled]="!isAuth" (click)="onEteindre()"> Tout eteindre </button>
+    <button class="btn btn-info" [disabled]="!isAuth" (click)="onSave()"> Enregistrer </button>
+    <button class="btn btn-info" [disabled]="!isAuth" (click)="onLoad()"> Charger </button>
+    <button class="btn btn-danger" [disabled]="!isAuth" (click)="onDelete()"> Effacer </button>
     <!-- directive -->
 
   </div>

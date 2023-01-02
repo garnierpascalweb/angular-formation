@@ -86,6 +86,12 @@ Les formulaires (methode template, methode reactive)
 on peut creer ses propres validators, surement en implementant une interface : a regarder
 2:48:00 a 2:54:15 FormArray incomprehensible et non codé 
 
+2:55:00 les requetes http (HttpClient)
+HttpClientModule a ajouter au tableau des imports
+2:55:00 2:57:00 Firebase
+2:57:00 03:02:40 faire un put
+03:02:40         faire un get
+   03:04:00 cast du type lors d'un get
 
 
 
