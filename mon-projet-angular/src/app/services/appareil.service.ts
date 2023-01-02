@@ -85,9 +85,9 @@ export class AppareilService {
             status:''
         };
         // calcul de l'ID : le dernier de la liste, plus un (peut etre ignoré et géré par le sgbd en auto incrtement dans un vrai projet)
-        if (this.appareils.length)
+        if (this.appareils.length > 0)
             appareilObjectToAdd.id = this.appareils[(this.appareils.length-1)].id+1;
-        else appareilObjectToAdd.id = this.appareils[0].id+1;
+        else appareilObjectToAdd.id = 0;
         appareilObjectToAdd.name = name;
         appareilObjectToAdd.status = status;
         // Ajout du nouvel appareil
